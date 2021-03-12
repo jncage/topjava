@@ -40,7 +40,7 @@ public class ImplMealDaoInMemory implements MealDao {
 
     @Override
     public void updateMeal(Meal meal) {
-
+        storage.replace(meal.getMealId(), meal);
     }
 
     @Override
