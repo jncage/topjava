@@ -50,6 +50,6 @@ public class ImplMealDaoInMemory implements MealDao {
 
     @Override
     public Meal getMealById(int mealId) {
-        return null;
+        return storage.get(mealId);
     }
 }

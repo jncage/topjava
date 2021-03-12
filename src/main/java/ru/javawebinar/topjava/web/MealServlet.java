@@ -24,7 +24,6 @@ import static org.slf4j.LoggerFactory.getLogger;
 import static ru.javawebinar.topjava.util.MealsUtil.*;
 
 public class MealServlet extends HttpServlet {
-    private DateTimeFormatter fmt = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
     private static final Logger log = getLogger(MealServlet.class);
     private ImplMealDaoInMemory dao = new ImplMealDaoInMemory();
     private static String LIST_MEAL = "/meals.jsp";
@@ -59,7 +58,7 @@ public class MealServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        LocalDateTime ldt = LocalDateTime.parse(req.getParameter("datetime"), fmt);
+        LocalDateTime ldt = LocalDateTime.parse(req.getParameter("datetime"));
         String description = req.getParameter("description");
         int calories = Integer.parseInt(req.getParameter("calories"));
         Meal meal = new Meal(ldt, description, calories);
